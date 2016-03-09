@@ -21,6 +21,9 @@
 #include "cross_ailpk.h"
 #include "cross_do.h"
 #include "cross_dopk.h"
+#include "cross_f2seq.h"
+#include "cross_f2seqpk.h"
+
 
 QTLCross* QTLCross::Create(const String& crosstype)
 {
@@ -33,8 +36,10 @@ QTLCross* QTLCross::Create(const String& crosstype)
     if(crosstype=="haploid") return new HAPLOID();
     if(crosstype=="ail")     return new AIL();
     if(crosstype=="ailpk")   return new AILPK();
-    if(crosstype=="do")     return new DO();
-    if(crosstype=="dopk")   return new DOPK();
+    if(crosstype=="do")      return new DO();
+    if(crosstype=="dopk")    return new DOPK();
+    if(crosstype=="f2seq")   return new F2SEQ();
+    if(crosstype=="f2seqpk") return new F2SEQPK();
 
     throw std::range_error("cross type not yet supported.");
     return NULL;
